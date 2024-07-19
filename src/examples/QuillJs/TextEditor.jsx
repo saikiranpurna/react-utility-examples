@@ -9,15 +9,14 @@ const TextEditor = () => {
   // Quill modules configuration
   const modules = {
     toolbar: [
-      [{ header: "1" }, { header: "2" }, { font: [] }],
-      [{ size: [] }],
-      ["bold", "italic", "underline", "trike", "blockquote"],
-      [
-        { list: "ordered" },
-        { list: "bullet" },
-        { indent: "-1" },
-        { indent: "+1" },
-      ],
+      [{ font: [] }],
+      [{ header: [1, 2, 3, 4, 5, 6, false] }],
+      ["bold", "italic", "underline", "strike"],
+      [{ color: [] }, { background: [] }],
+      [{ script: "sub" }, { script: "super" }],
+      ["blockquote", "code-block"],
+      [{ list: "ordered" }, { list: "bullet" }],
+      [{ indent: "-1" }, { indent: "+1" }, { align: [] }],
       ["link", "image", "video"],
       ["clean"],
     ],
@@ -39,45 +38,47 @@ const TextEditor = () => {
   };
 
   return (
-    <div>
-      <div className="flex justify-center items-center h-[10rem]">
-        <h1 className="text-6xl font-extrabold">Quill.Js Text Editor</h1>
-      </div>
-      <div className="flex justify-center flex-col items-center">
-        <button
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer w-20 ml-[34%] mb-6"
-          onClick={() => handleSave()}
-        >
-          Save
-        </button>
-        <div className="w-[100%] flex justify-center items-center flex-col">
-          <ReactQuill
-            className="h-[10rem]"
-            theme="snow"
-            formats={[
-              "header",
-              "font",
-              "ize",
-              "bold",
-              "italic",
-              "underline",
-              "trike",
-              "blockquote",
-              "list",
-              "bullet",
-              "indent",
-              "link",
-              "image",
-              "video",
-            ]}
-            placeholder="Write something amazing..."
-            modules={modules}
-            value={content}
-            onChange={handleChange}
-          />
+    <>
+      <div>
+        <div className="flex justify-center items-center h-[10rem]">
+          <h1 className="text-6xl font-extrabold">Quill.Js Text Editor</h1>
+        </div>
+        <div className="flex justify-center flex-col items-center">
+          <button
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer w-20 ml-[34%] mb-6"
+            onClick={() => handleSave()}
+          >
+            Save
+          </button>
+          <div className="w-[100%] flex justify-center items-center flex-col">
+            <ReactQuill
+              className="h-[10rem]"
+              theme="snow"
+              formats={[
+                "header",
+                "font",
+                "ize",
+                "bold",
+                "italic",
+                "underline",
+                "trike",
+                "blockquote",
+                "list",
+                "bullet",
+                "indent",
+                "link",
+                "image",
+                "video",
+              ]}
+              placeholder="Write something amazing..."
+              modules={modules}
+              value={content}
+              onChange={handleChange}
+            />
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
