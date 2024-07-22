@@ -1,5 +1,5 @@
 import React from "react";
-import "../../styles/3Dslider.css"
+import "../../styles/3Dslider.css";
 import img1 from "../../assets/images/1.png";
 import img2 from "../../assets/images/2.webp";
 import img3 from "../../assets/images/3.webp";
@@ -17,33 +17,35 @@ import img14 from "../../assets/images/14.png";
 import img15 from "../../assets/images/15.webp";
 
 const Slider3D = () => {
-    const imgArr = [
-        img1,
-        img2,
-        img3,
-        img4,
-        img5,
-        img6,
-        img7,
-        img8,
-        img9,
-        img10,
-        img11,
-        img12,
-        img13,
-        img14,
-        img15,
-      ];
+  const imgArr = [
+    img1,
+    img2,
+    img3,
+    img4,
+    img5,
+    img6,
+    img7,
+    img8,
+    img9,
+    img10,
+    img11,
+    img12,
+    img13,
+    img14,
+    img15,
+  ];
   return (
     <div className="banner">
       <div className="slider" style={{ "--quantity": imgArr.length }}>
         {imgArr.map((img, i) => (
           <div style={{ "--position": i + 1 }} className={"item"}>
+            {/* here we're creating the varible dynamically which is helps us to set the image position dynamically from CSS */}
             <img src={img} alt="hashira" />
           </div>
         ))}
       </div>
-      <p className="demon-slayer"></p>
+      {/* Below container is for holding the image by the css at the center of the slider */}
+      <div className="demon-slayer"></div>
     </div>
   );
 };

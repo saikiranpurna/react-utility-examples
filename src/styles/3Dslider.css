@@ -1,8 +1,8 @@
+/* Setting container for the slider */
 .banner {
     width: 100%;
     height: 30rem;
     text-align: center;
-    overflow: hidden;
     position: relative;
     z-index: 2;
 }
@@ -14,8 +14,9 @@
     z-index: 10;
     top: 10%;
     left: calc(50% - 100px);
+    /* For getting the slider to center of the page  */
+    /* Below css makes slider have 3D view */
     transform-style: preserve-3d;
-    transform: perspective(1000px);
     animation: autorotation 40s linear infinite;
 }
 
@@ -23,6 +24,7 @@
     position: absolute;
     inset: 0 0 0 0;
     transform: rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg)) translateZ(500px);
+    /*Spreads the images over x and z axis. Here --position variable getting the value dynamically from slider item  */
 }
 
 .slider .item img {
@@ -31,8 +33,9 @@
     object-fit: cover;
 }
 
+/* Below css added image at the y-axis where images rotates */
 .demon-slayer {
-    background-image: url("../assets/images/middleImg.png") ;
+    background-image: url("../assets/images/middleImg.png");
     width: 100%;
     height: 20rem;
     position: absolute;
@@ -44,6 +47,7 @@
     background-position: top center;
 }
 
+/* Used keyframes for rotating the images on y-axis */
 @keyframes autorotation {
     from {
         transform: perspective(1000px) rotateX(-13deg) rotateY(0deg);
