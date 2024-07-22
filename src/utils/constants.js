@@ -13,8 +13,8 @@ export const CardItems = [
     },  
     {
         title:'3D Slider',
-        subTitle:'Images Slides/Rotates over Z-axis which gives 3D effect',
+        subTitle:'Images Slides/Rotates over Z-axis which gives 3D effect using CSS only',
         link:'/3d-slider',
-        gitLink:'https://github.com/saikiranpurna/react-utility-examples/blob/main/src/examples/QuillJs/TextEditor.jsx'
+        gitLink:'https://github.com/saikiranpurna/react-utility-examples/blob/main/src/examples/Sliders/3dSlider.jsx'
     },  
 ]

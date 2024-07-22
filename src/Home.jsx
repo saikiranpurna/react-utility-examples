@@ -3,7 +3,6 @@ import { CardItems } from "./utils/constants";
 import { Link } from "react-router-dom";
 import { GrTechnology } from "react-icons/gr";
 const Home = () => {
-  console.log(CardItems)
   return (
     <div className="w-full h-[100vh] bg-[#F9FAFB]">
       <div className="flex gap-4 justify-center items-center">
