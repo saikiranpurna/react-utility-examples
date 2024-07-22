@@ -68,10 +68,3 @@
 ---
 
 - Report issues or bugs on the GitHub issues page: https://github.com/saikiranpurna/react-utility-examples/issues
-
-## Contact
-
----
-
-- Email: [john.doe@example.com](mailto:john.doe@example.com)
-- Twitter: @johndoe
