@@ -11,4 +11,10 @@ export const CardItems = [
         link:'/quill-advanced',
         gitLink:'https://github.com/saikiranpurna/react-utility-examples/blob/main/src/examples/QuillJs/TextEditor.jsx'
     },  
+    {
+        title:'3D Slider',
+        subTitle:'Images Slides/Rotates over Z-axis which gives 3D effect',
+        link:'/3d-slider',
+        gitLink:'https://github.com/saikiranpurna/react-utility-examples/blob/main/src/examples/QuillJs/TextEditor.jsx'
+    },  
 ]

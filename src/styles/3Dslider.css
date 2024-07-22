@@ -1,0 +1,55 @@
+.banner {
+    width: 100%;
+    height: 30rem;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+}
+
+.slider {
+    position: absolute;
+    width: 200px;
+    height: 250px;
+    z-index: 10;
+    top: 10%;
+    left: calc(50% - 100px);
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+    animation: autorotation 40s linear infinite;
+}
+
+.slider .item {
+    position: absolute;
+    inset: 0 0 0 0;
+    transform: rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg)) translateZ(500px);
+}
+
+.slider .item img {
+    /* width: 100%; */
+    height: 10rem;
+    object-fit: cover;
+}
+
+.demon-slayer {
+    background-image: url("../assets/images/middleImg.png") ;
+    width: 100%;
+    height: 20rem;
+    position: absolute;
+    top: 120px;
+    z-index: 1;
+    left: 0;
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-position: top center;
+}
+
+@keyframes autorotation {
+    from {
+        transform: perspective(1000px) rotateX(-13deg) rotateY(0deg);
+    }
+
+    to {
+        transform: perspective(1000px) rotateX(-13deg) rotateY(360deg);
+    }
+}
