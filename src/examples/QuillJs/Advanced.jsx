@@ -83,7 +83,6 @@ const AdvancedQuillEditor = (props) => {
    **/
   class InstagramPostBlot extends Embed {
     static create(actualUrl) {
-      console.log(actualUrl)
       const node = super.create();
       const embedCode = `<iframe src="${actualUrl}embed" width="400" height="500" frameborder="0" allowtransparency="true"></iframe>`;
       node.innerHTML = embedCode;

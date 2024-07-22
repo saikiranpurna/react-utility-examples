@@ -3,6 +3,7 @@ import Home from "./Home";
 import TextEditor from "./examples/QuillJs/TextEditor";
 import AdvancedTextEditor from "./examples/QuillJs/Advanced";
 import BackToHome from "./common/BackToHome";
+import Slider3D from "./examples/Sliders/3dSlider";
 
 function App() {
   return (
@@ -22,6 +23,14 @@ function App() {
           element={
             <BackToHome>
               <AdvancedTextEditor />
+            </BackToHome>
+          }
+        />
+        <Route
+          path="/3d-slider"
+          element={
+            <BackToHome>
+              <Slider3D />
             </BackToHome>
           }
         />
