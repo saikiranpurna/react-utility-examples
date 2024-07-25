@@ -4,12 +4,12 @@ import { Link } from "react-router-dom";
 const BackToHome = ({ children }) => {
   return (
     <>
-      <div className="p-12">
+      <div className="z-10 absolute pb-0">
         <Link to={"/"}>
           <IoMdArrowRoundBack className="w-12 h-12" />
         </Link>
       </div>
-      {children}
+      <section className="pt-12">{children}</section>
     </>
   );
 };

@@ -6,11 +6,10 @@ const Home = () => {
   return (
     <div className="w-full h-[100vh] bg-[#F9FAFB]">
       <div className="flex gap-4 justify-center items-center">
-
-      <GrTechnology className="w-10 h-10" />
-      <h1 className=" text-center py-12 font-bold text-5xl ">
-       React Utility Examples
-      </h1>
+        <GrTechnology className="w-10 h-10" />
+        <h1 className=" text-center py-12 font-bold text-5xl ">
+          React Utility Examples
+        </h1>
       </div>
       <div className="flex p-12 mt-8 gap-14 flex-wrap items-center justify-center ">
         {CardItems.map((item, index) => (
@@ -19,13 +18,14 @@ const Home = () => {
             key={index}
           >
             <div className="relative z-10 flex flex-col justify-between h-full">
-              <div className="flex justify-between items-center px-6">
-                <div className="max-w-md">
+              <div className="flex justify-between items-center px-6 relative">
+                <div className="max-w-md ">
                   <div className="pt-4 font-bold text-lg">{item.title}</div>
                   <div className="flex-grow pr-4 pt-1 pb-4 text-base text-gray-500 !leading-relaxed">
                     {item.subTitle}
                   </div>
                 </div>
+                  <h4 className="text-gray-500 absolute bottom-0 right-3">- {item.author}</h4>
               </div>
               <div className="flex w-full border-t border-gray-200 dark:border-gray-700 divide-x divide-gray-200 dark:divide-gray-700">
                 <Link
