@@ -15,6 +15,6 @@ export const CardItems = [
         title:'Sliders',
         subTitle:'Various Sliders using only JS & CSS with React',
         link:'/sliders',
-        gitLink:'https://github.com/saikiranpurna/react-utility-examples/blob/main/src/examples/Sliders/3dSlider.jsx'
+        gitLink:'https://github.com/NarasimhaAnaparthi/react-utility-examples/tree/main/src/examples/Sliders'
     },  
 ]
