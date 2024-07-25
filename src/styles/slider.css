@@ -1,0 +1,310 @@
+/* Setting container for the slider */
+.banner {
+    width: 100%;
+    height: 30rem;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.slider {
+    position: absolute;
+    width: 200px;
+    height: 250px;
+    z-index: 10;
+    top: 10%;
+    left: calc(50% - 100px);
+    /* For getting the slider to center of the page  */
+    /* Below css makes slider have 3D view */
+    transform-style: preserve-3d;
+    animation: autorotation 40s linear infinite;
+}
+
+.slider:hover {
+    animation-play-state: paused;
+}
+
+.slider .item {
+    position: absolute;
+    inset: 0 0 0 0;
+    transform: rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg)) translateZ(500px);
+    /*Spreads the images over x and z axis. Here --position variable getting the value dynamically from slider item  */
+}
+
+.slider .item img {
+    /* width: 100%; */
+    height: 10rem;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+/* Below css added image at the y-axis where images rotates */
+.demon-slayer {
+    background-image: url("../assets/images/middleImg.png");
+    width: 100%;
+    height: 20rem;
+    position: absolute;
+    top: 120px;
+    z-index: 1;
+    left: 0;
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-position: top center;
+}
+
+/* Used keyframes for rotating the images on y-axis */
+@keyframes autorotation {
+    from {
+        transform: perspective(1000px) rotateX(-13deg) rotateY(0deg);
+    }
+
+    to {
+        transform: perspective(1000px) rotateX(-13deg) rotateY(360deg);
+    }
+}
+
+
+/* <======================================================================= Carosel =======================================================================> */
+
+.carousel {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel .list .item {
+    position: absolute;
+    inset: 0 0 0 0;
+}
+
+.carousel .list .item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.carousel .list .item .content {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    width: 800px;
+    max-width: 80%;
+    transform: translateX(-95%);
+    padding: 30px;
+    box-sizing: border-box;
+    color: #ffffff;
+    text-shadow: 0 2px 10px #15cbd4;
+}
+
+.carousel .list .item .content .name,
+.carousel .list .item .content .series,
+.carousel .list .item .content .des {
+    font-weight: 500;
+    line-height: 1.4em;
+    letter-spacing: 2px;
+}
+
+.carousel .list .item .content .name {
+    font-size: 4em;
+}
+
+.carousel .list .item .content .series {
+    font-size: 2em;
+    margin-bottom: 0.6em;
+}
+
+.carousel .list .item .content .des {
+    font-size: 1em
+}
+
+.carousel .list .item:nth-child(1) {
+    z-index: 1;
+}
+
+.carousel .list .item:nth-child(1) .content .name,
+.carousel .list .item:nth-child(1) .content .series,
+.carousel .list .item:nth-child(1) .content .des {
+    transform: translateY(50px);
+    filter: blur(10px);
+    opacity: 0;
+    animation: showcontent .5s 1s linear 1 forwards;
+}
+
+.carousel .list .item:nth-child(2) .content .name,
+.carousel .list .item:nth-child(2) .content .series,
+.carousel .list .item:nth-child(2) .content .des {
+    animation: hideContent .5s linear 1 forwards;
+}
+
+@keyframes hideContent {
+    to {
+        transform: translateY(-50px);
+        filter: blur(10px);
+        opacity: 0;
+    }
+}
+
+@keyframes showcontent {
+    to {
+        opacity: 1;
+        filter: blur(0px);
+        transform: translateY(0);
+    }
+}
+
+.carousel .list .item:nth-child(1) .content .name {
+    animation-delay: 1s;
+}
+
+.carousel .list .item:nth-child(1) .content .series {
+    animation-delay: 1.2s;
+}
+
+.carousel .list .item:nth-child(1) .content .des {
+    animation-delay: 1.4s;
+}
+
+.carousel.prev .list .item:nth-child(2) {
+    z-index: 2;
+}
+
+.carousel.prev .list .item:nth-child(2) img {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    animation: hideImage .5s linear 1 forwards;
+}
+
+@keyframes hideImage {
+    to {
+        width: 160px;
+        height: 240px;
+        left: 60%;
+        bottom: 30px;
+        border-radius: 15px;
+    }
+}
+
+.carousel.next .list .item:nth-child(1) img {
+    width: 160px;
+    height: 240px;
+    position: absolute;
+    left: 60%;
+    bottom: 30px;
+    border-radius: 15px;
+    animation: showImage .5s linear 1 forwards;
+}
+
+@keyframes showImage {
+    to {
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+        bottom: 0;
+    }
+}
+
+.thumbnail {
+    position: absolute;
+    bottom: 30px;
+    left: 60%;
+    display: flex;
+    gap: 20px;
+    width: max-content;
+    z-index: 100;
+}
+
+.thumbnail .item {
+    width: 160px;
+    height: 240px;
+    flex-shrink: 0;
+    position: relative;
+}
+
+.thumbnail .item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.thumbnail .item .content {
+    position: absolute;
+    bottom: 20px;
+    color: #ffffff;
+    left: 20px;
+}
+
+.thumbnail .item .content .name,
+.thumbnail .item .content .series {
+    font-weight: 600;
+    font-style: italic;
+}
+
+.thumbnail .item .content .name {
+    font-size: medium;
+
+}
+
+.thumbnail .item .content .series {
+    font-size: small;
+}
+
+.carousel.prev .thumbnail .item:nth-child(1) {
+    width: 0;
+    overflow: hidden;
+    animation: showThumbnail 0.5s linear 1 forwards;
+}
+
+.carousel.next .thumbnail .item:nth-last-child(1) {
+    width: 0;
+    overflow: hidden;
+    animation: showThumbnail 0.5s linear 1 forwards;
+}
+
+@keyframes showThumbnail {
+    to {
+        width: 160px;
+    }
+}
+
+.carousel.next .thumbnail {
+    transform: translateX(160px);
+    animation: transformThumbnail 0.5s linear 1 forwards;
+}
+
+@keyframes transformThumbnail {
+    to {
+        transform: translateX(0);
+    }
+}
+
+#arrow {
+    position: absolute;
+    top: 80%;
+    left: 30%;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    font-family: monospace;
+    z-index: 99;
+}
+
+#arrow button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #2646478e;
+    border: none;
+    color: #ffffff;
+    font-weight: bolder;
+    font-size: large;
+}
+
+#arrow button:hover {
+    background-color: #ffffff80;
+    color: #0000005d;
+    cursor: pointer;
+}

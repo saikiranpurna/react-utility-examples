@@ -12,9 +12,9 @@ export const CardItems = [
         gitLink:'https://github.com/saikiranpurna/react-utility-examples/blob/main/src/examples/QuillJs/TextEditor.jsx'
     },  
     {
-        title:'3D Slider',
-        subTitle:'Images Slides/Rotates over Z-axis which gives 3D effect using CSS only',
-        link:'/3d-slider',
+        title:'Sliders',
+        subTitle:'Various Sliders using only JS & CSS with React',
+        link:'/sliders',
         gitLink:'https://github.com/saikiranpurna/react-utility-examples/blob/main/src/examples/Sliders/3dSlider.jsx'
     },  
 ]
