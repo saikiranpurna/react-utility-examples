@@ -86,10 +86,10 @@
 
 .carousel .list .item .content {
     position: absolute;
-    top: 40%;
+    top: 25%;
     left: 50%;
     width: 800px;
-    max-width: 80%;
+    max-width: 60%;
     transform: translateX(-95%);
     padding: 30px;
     box-sizing: border-box;
@@ -307,4 +307,121 @@
     background-color: #ffffff80;
     color: #0000005d;
     cursor: pointer;
+}
+
+@media (max-width:1440px) {
+    .carousel .list .item .content {
+        left: 0;
+        transform: none;
+    }
+
+    .carousel .list .item .content .name,
+    .carousel .list .item .content .series,
+    .carousel .list .item .content .des {
+        letter-spacing: 1px;
+    }
+
+    .carousel .list .item .content .des {
+        font-size: 0.9em;
+    }
+
+    .carousel .list .item .content .series {
+        font-size: 1.7em;
+    }
+
+    .carousel .list .item .content .name {
+        font-size: 3em;
+    }
+}
+
+/* <============================================================ OnScroll vertical Slider ============================================================> */
+.main {
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+}
+
+#slide-container.container {
+    height: 35rem;
+    overflow-y: hidden;
+    position: relative;
+    margin-top: 5rem;
+    overflow-x: hidden;
+    width: calc(var(--width) * 1px);
+}
+
+.item {
+    scroll-snap-align: start;
+    /* Snap each item to the start of the container */
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    z-index: calc(var(--index));
+    left: 5rem;
+    margin: 2rem 0;
+    /* Add some spacing between items */
+    transition: transform 0.5s ease;
+    transform: translateX(calc(var(--index) * -1%)) translateY(calc(var(--index) * var(--stackGap) * 1%));
+}
+
+.item img {
+    width: calc((1000 - ((var(--total) - (var(--index))) * 20)) * 1px);
+    opacity: calc((((var(--index) / var(--total)) + 0.2)));
+    border-radius: 1rem;
+    transition: transform .5s ease-in-out;
+    height: 300px;
+    /* Smooth transition on hover */
+}
+
+.reflow {
+    /* Any trivial style change to force the browser to reflow */
+    opacity: 1;
+}
+
+.item:not(:last-child):hover img {
+    transform: scale(1.05);
+    /* Slight zoom on hover */
+    opacity: 1;
+    /* Increase opacity on hover */
+}
+
+/* .container:last-child() img {
+    transform: scale(1);
+    opacity: 1;
+} */
+
+.item.fadeout {
+    animation: fadeOutDown 1s 0.1s linear 1 forwards;
+    /* Slight downward movement and scale down */
+}
+
+.item.fadein {
+    animation: fadeInUp 1s 0.1s linear 1 forwards;
+    /* Slight upward movement and scale down */
+}
+
+@keyframes fadeOutDown {
+    0% {
+        opacity: 1;
+        transform: translateX(calc(var(--index) * -1%)) translateY(calc(var(--index) * var(--stackGap) * 1%));
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateX(calc(var(--index) * -1%)) translateY(100%);
+        /* Adjust value for the distance to move downwards */
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateX(calc(var(--index) * -1%)) translateY(calc(var(--index) * 15%));
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(calc(var(--index) * -1%)) translateY(calc(var(--index) * var(--stackGap) * 1%));
+    }
+
 }

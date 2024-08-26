@@ -22,6 +22,7 @@ import slide4 from "../../assets/images/slide4.jpg";
 
 import Carousel from "../../components/Carousel";
 import Slider3D from "../../components/3DSlider";
+import OnScrollSlider from "../../components/OnScrollSlider";
 
 const Sliders = () => {
   const imgArr = [
@@ -67,7 +68,12 @@ const Sliders = () => {
       img: slide4,
     },
   ];
-  const sliderTypes = ["Carousel with Slide effect", "3D Slide Show"];
+  const sliderTypes = [
+    "Carousel with Slide effect",
+    "3D Slide Show",
+    "Vertical Mouse Scroll Slider",
+  ];
+  const sliderArr2 = [...slideArr]
   const [type, setType] = useState("Carousel with Slide effect");
   const currentComponent = () => {
     switch (type) {
@@ -75,6 +81,14 @@ const Sliders = () => {
         return <Carousel data={slideArr} auto={true} />;
       case "3D Slide Show":
         return <Slider3D data={imgArr} />;
+      case "Vertical Mouse Scroll Slider":
+        return (
+          <OnScrollSlider auto={false}>
+            {sliderArr2.map((item) => {
+              return <img height={"200px"} src={item.img} />;
+            })}
+          </OnScrollSlider>
+        );
       default:
         break;
     }
